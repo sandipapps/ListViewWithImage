@@ -6,8 +6,16 @@ import android.widget.ListView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    /*
+    Image Credit:
+    Images in this tutorial are originally made by Konpa (under MIT License)
+    Link for download: https://devicons.github.io/devicon/
+    License: https://github.com/devicons/devicon/blob/master/LICENSE
+     */
 
+    // Create a ListView object reference
     ListView lvProgram;
+    // Next, prepare your data set. Create two string arrays for program name and program description respectively.
     String[] programName = {"C", "C++", "Java", "Android", "HTML5", "CSS3", "JavaScript", "jQuery", "Bootstrap", "PHP",
             "MySQL", "CodeIgniter", "React", "NodeJS", "AngularJS", "PostgreSQL", "Python", "C#", "Wordpress", "GitHub"};
     String[] programDescription = {"C Description", "C++ Description", "Java Description",
@@ -17,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
             "CodeIgniter Description", "React Description", "NodeJS Description",
             "AngularJS Description", "PostgreSQL Description", "Python Description",
             "C# Description", "Wordpress Description", "GitHub Description"};
+    // Define an integer array to hold the image recourse ids
     int[] programImages = {R.drawable.c, R.drawable.cplusplus,
             R.drawable.java, R.drawable.android, R.drawable.html5,
             R.drawable.css3, R.drawable.javascript, R.drawable.jquery,
@@ -53,9 +62,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // Get the handle for ListView
         lvProgram = findViewById(R.id.lvProgram);
+        // Specify an adapter and pass context along with all the arrays in constructor
         ProgramAdapter programAdapter = new ProgramAdapter(this, programName, programImages, programDescription);
         //ProgramAdapter programAdapter = new ProgramAdapter(this, programName, programImages, programDescription, urls);
+
+        // Set the adapter with the ListView
         lvProgram.setAdapter(programAdapter);
     }
 }
